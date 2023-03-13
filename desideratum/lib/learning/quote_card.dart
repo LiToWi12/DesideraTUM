@@ -1,11 +1,12 @@
-import 'package:desideratum/Quote.dart';
+import 'package:desideratum/learning/Quote.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class QuoteCard extends StatelessWidget {
 
   final Quote quote;
-  QuoteCard({required this.quote});
+  final Function delete;
+  QuoteCard({required this.quote, required this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,12 @@ class QuoteCard extends StatelessWidget {
                 fontSize: 18,
                 color: Colors.grey[800],
               ),
+            ),
+            SizedBox(height: 8),
+            TextButton.icon(
+              onPressed: () => delete(),
+              icon: Icon(Icons.delete), 
+              label: Text('delete quote'),
             )
           ],
         ),
